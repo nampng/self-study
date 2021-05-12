@@ -1,6 +1,8 @@
 # Program to test out bubble sorting.
 # O(N^2) algorithm. Simple sort.
 
+import time
+
 def BubbleSort(array):
     if len(array) < 2:
         return
@@ -37,6 +39,7 @@ def BubbleSort(array):
             left += 1
             right += 1
     
+    print(f"Total passthroughs: {count}")
     print(f"Total steps: {steps}")
 
 def Swap(left, right, array):
@@ -47,9 +50,11 @@ def Swap(left, right, array):
 def WorstCase(size):
     array = list(range(size))
     desc = array[::-1]
-    print(desc)
+    start = time.perf_counter()
     BubbleSort(desc)
+    end = time.perf_counter()
+    print(f"Bubble sort took: {end - start} seconds")
 
 if __name__ == "__main__":
     # BubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
-    # WorstCase(80)
+    WorstCase(524)
