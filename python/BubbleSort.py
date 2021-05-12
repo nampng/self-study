@@ -53,8 +53,8 @@ def WorstCase(size):
     start = time.perf_counter()
     BubbleSort(desc)
     end = time.perf_counter()
-    print(f"Bubble sort took: {end - start} seconds")
+    return end - start
 
 if __name__ == "__main__":
     # BubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
-    WorstCase(524)
+    WorstCase(1000)
