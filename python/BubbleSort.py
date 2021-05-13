@@ -2,6 +2,7 @@
 # O(N^2) algorithm. Simple sort.
 
 import time
+import random
 
 def BubbleSort(array):
     if len(array) < 2:
@@ -52,6 +53,24 @@ def WorstCase(size):
     desc = array[::-1]
     start = time.perf_counter()
     BubbleSort(desc)
+    end = time.perf_counter()
+    return end - start
+
+def AverageCase(size):
+    array = []
+    for i in range(size):
+        array.append(random.randint(0, 100))
+    
+    print(f"Random array: {array}")
+
+    start = time.perf_counter()
+    BubbleSort(array)
+    end = time.perf_counter()
+    return end - start
+
+def AverageCase2(array):
+    start = time.perf_counter()
+    BubbleSort(array)
     end = time.perf_counter()
     return end - start
 
