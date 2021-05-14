@@ -4,15 +4,15 @@
 import time
 import random
 
-def Quicksort(left, right, array):
+def QuickSort(left, right, array):
     # print(array)
     if right - left <= 0:
         return
     
     pivot = Partition(left, right, array)
 
-    Quicksort(left, pivot - 1, array)
-    Quicksort(pivot + 1, right, array)
+    QuickSort(left, pivot - 1, array)
+    QuickSort(pivot + 1, right, array)
 
 def Partition(left, right, array):
     # print("Starting partition")
@@ -55,11 +55,17 @@ def AverageCase(size):
     print(f"Random array is: {array}")
 
     start = time.perf_counter()
-    Quicksort(0, size - 1, array)
+    QuickSort(0, size - 1, array)
     end = time.perf_counter()
 
     print(f"Sorted array: {array}")
 
+    return end - start
+
+def AverageCase2(array):
+    start = time.perf_counter()
+    QuickSort(0, len(array) - 1, array)
+    end = time.perf_counter()
     return end - start
 
 
@@ -69,5 +75,5 @@ if __name__ == "__main__":
     # Quicksort(0, len(array) - 1, array)
     # print(f"Sorted: {array}")
 
-    time_qs = AverageCase(1000)
+    time_qs = AverageCase(10)
     print(f"Quicksort took {time_qs} seconds.")

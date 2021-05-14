@@ -3,6 +3,7 @@
 import BubbleSort
 import SelectionSort
 import InsertionSort
+import QuickSort
 
 import random
 
@@ -14,13 +15,15 @@ if __name__ == "__main__":
     # print(f"Selection Sort took {time_ss} seconds")
 
     array = []
-    for x in range(1000):
+    for x in range(100):
         array.append(random.randint(0, 100000))
 
     time_bs = BubbleSort.AverageCase2(array)
-    # time_ss = SelectionSort.AverageCase2(array)
-    # time_is = InsertionSort.AverageCase2(array)
+    time_ss = SelectionSort.AverageCase2(array)
+    time_is = InsertionSort.AverageCase2(array)
+    time_qs = QuickSort.AverageCase2(array)
 
     print(f"Bubble Sort took {time_bs} seconds")
-    # print(f"Selection Sort took {time_ss} seconds")
-    # print(f"Insertion Sort took {time_is} seconds")
+    print(f"Selection Sort took {time_ss} seconds")
+    print(f"Insertion Sort took {time_is} seconds")
+    print(f"Quick Sort took {time_qs} seconds")
