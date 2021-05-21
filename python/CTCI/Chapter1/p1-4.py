@@ -4,8 +4,12 @@
 # A permutation is a rearrangement of letters. The palindrome does not need to be limited
 # to just dictionary words. You can ignore casing and non-letter characters.
 
+# O(N)
 def PalinPerm(string):
     c_dict = {}
+    string = string.replace(" ", "")
+    string = string.lower()
+    print(string)
     for c in string:
         if c in c_dict:
             c_dict[c] += 1
@@ -23,4 +27,4 @@ def PalinPerm(string):
     
     return True
 
-print(PalinPerm(""))
+print(PalinPerm("Tact Coa"))

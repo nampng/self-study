@@ -3,6 +3,7 @@
 # has sufficient space at the end to hold the additional characters, and that you are given the "true"
 # length of the string.
 
+# O(N)
 def Urlify(string):
     string = string.split(' ')
     seperator = '%20'
