@@ -6,9 +6,9 @@
 
 # This solution fails to check for duplicates when another duplicate is found.
 # Look for a recursive approach?
-def RemoveDups_failed(head):
+def RemoveDups_failed(linked_list):
     val_dict = {}
-    current = head
+    current = linked_list.head
     val_dict[current.value] = 1
     while current != None:
         if current.next.value in val_dict:
@@ -16,6 +16,23 @@ def RemoveDups_failed(head):
         else:
             val_dict[current.next.value] = 1
         current = current.next
+
+# Solution uses recursion.
+# Sucessfully checks for sequential duplicates
+def RemoveDups(current, val_dict = {}):
+    if current not in val_dict:
+        val_dict[current.value] = 1
+    
+    if current.next == None:
+        return
+    
+    if current.next.value in val_dict:
+        current.next = current.next.next
+        RemoveDups(current, val_dict)
+    else:
+        val_dict[current.next.value] = 1
+        current = current.next
+        RemoveDups(current, val_dict)
 
 # Taken from Structures/LinkedList.py
 # ------------------------------------------------------------
@@ -83,5 +100,17 @@ if __name__ == "__main__":
     linlis.Add(2)
     linlis.Add(3)
     linlis.Add(1)
+    linlis.Add(4)
+    linlis.Add(4)
+    linlis.Add(5)
+    linlis.Add(4)
+    linlis.Add(4)
+    linlis.Add(6)
+    linlis.Add(4)
+    linlis.Add(7)
+
+    linlis.Print()
+
+    RemoveDups(linlis.head)
 
     linlis.Print()

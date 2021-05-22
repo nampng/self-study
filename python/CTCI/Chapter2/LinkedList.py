@@ -42,7 +42,7 @@ class LinkedList:
                 current = current.next
 
         return False
-    
+
     def GetFirstNodeWithVal(self, val):
         current = self.head
         while current != None:
