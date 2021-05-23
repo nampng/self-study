@@ -38,6 +38,7 @@ class ThreeInOne:
         stack_pop_pos = (self.stack_size * (stack_num - 1)) + self.stack_counts[stack_num - 1]
         val = self.array[stack_pop_pos]
         self.array[stack_pop_pos] = None
+        return val
 
         
         
