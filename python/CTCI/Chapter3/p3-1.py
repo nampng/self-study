@@ -40,11 +40,6 @@ class ThreeInOne:
         self.array[stack_pop_pos] = None
         return val
 
-        
-        
-
-
-
 if __name__ == "__main__":
     triple = ThreeInOne(4)
 
